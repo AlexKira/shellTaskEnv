@@ -1,2 +1,2 @@
-(RU) - Инструкция в разработке
-(ENG) - Instructions under development
+(RU) - Инструкция в разработке.
+(ENG) - Instructions under development.
