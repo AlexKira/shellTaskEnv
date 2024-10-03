@@ -1,0 +1,5 @@
+#!/bin/bash
+systemctl list-units --type=service | grep shellTaskEnv.service
+systemctl status shellTaskEnv.service
+journalctl -u shellTaskEnv.service --lines=20
+

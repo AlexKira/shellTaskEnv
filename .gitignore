@@ -1,0 +1,15 @@
+*.json
+*.log
+*.txt
+*.zip
+*.gz
+log/
+settings/
+dump/
+__pycache__/
+venv/
+env/
+.env
+.env/
+.venv/
+app/test

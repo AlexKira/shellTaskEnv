@@ -1,0 +1,17 @@
+[Unit]
+Description='Application for executing shell commands at specified and interval times' 
+After=network.target
+
+[Service]
+Type=simple
+#EnvironmentFile=/usr/lib/systemd/system/shellTaskEnv.conf
+User=root
+Group=root
+ExecStart=/bin/bash /opt/shellTaskEnv/app/script/systemd/service/main
+Restart=always
+KillSignal=SIGTERM 
+RestartSec=1
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target

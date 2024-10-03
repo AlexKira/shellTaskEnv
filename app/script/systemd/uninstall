@@ -1,0 +1,11 @@
+#!/bin/bash
+# Check root user access
+if [ "$(id -u)" != 0 ]; then
+  echo "Access denied. Run the script as 'root' user."
+exit 1
+fi
+
+systemctl stop shellTaskEnv.service
+yes | rm -R -I /usr/lib/systemd/system/shellTaskEnv.service
+yes | rm service/.env
+systemctl daemon-reload
