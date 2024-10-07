@@ -24,10 +24,10 @@ def addEnvFile() -> None:
     with open(f"{BASEDIR}/app/script/systemd/service/.env", "w") as file:
         export = (
             "#!/bin/bash\n"
-            "export SHELL_LOGRATATION="
-            f"{os.path.dirname(obj.LOGRATATION['LOGFILE']['FILENAME'])}\n"
-            "export SHELL_LOGRATATION_ARCH="
-            f"{os.path.dirname(obj.LOGRATATION['ARCH']['DIR'])}\n"
+            "export SHELL_LOGROTATION="
+            f"{os.path.dirname(obj.LOGROTATION['LOGFILE']['FILENAME'])}\n"
+            "export SHELL_LOGROTATION_ARCH="
+            f"{os.path.dirname(obj.LOGROTATION['ARCH']['DIR'])}\n"
             f"export SHELL_CONFPATH={os.path.dirname(obj.CONFPATH)}\n"
             f"export SHELL_CONFDUMP={os.path.dirname(obj.CONFDUMP['DIR'])}\n"
         )
