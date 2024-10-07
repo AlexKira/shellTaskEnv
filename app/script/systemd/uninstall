@@ -6,6 +6,7 @@ exit 1
 fi
 
 systemctl stop shellTaskEnv.service
+systemctl disable shellTaskEnv.service
 yes | rm -R -I /usr/lib/systemd/system/shellTaskEnv.service
 yes | rm service/.env
 systemctl daemon-reload

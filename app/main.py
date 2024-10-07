@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 from exec.runTask import (
     getLogger,
     runningShellTask
@@ -15,6 +16,7 @@ def main() -> None:
         runningShellTask()
     except SystemExit as err:
         rootLogger.warning(err)
+        sys.exit()
     except Exception as err:
         rootLogger.error(err)
         raise err
