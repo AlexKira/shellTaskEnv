@@ -48,15 +48,15 @@ fi
 source $ENVFILE
 
 # CHECK ENVIRON
-if [ -z "$SHELL_LOGRATATION" ]; then
-  logger "[Error][Virtual environment 'SHELL_LOGRATATION' not found]"
+if [ -z "$SHELL_LOGROTATION" ]; then
+  logger "[Error][Virtual environment 'SHELL_LOGROTATION' not found]"
 else
-  logger "[Success][SHELL_LOGRATATION]"
+  logger "[Success][SHELL_LOGROTATION]"
 fi
-if [ -z "$SHELL_LOGRATATION_ARCH" ]; then
-  logger "[Error][Virtual environment 'SHELL_LOGRATATION_ARCH' not found]"
+if [ -z "$SHELL_LOGROTATION_ARCH" ]; then
+  logger "[Error][Virtual environment 'SHELL_LOGROTATION_ARCH' not found]"
 else
-  logger "[Success][SHELL_LOGRATATION_ARCH]"
+  logger "[Success][SHELL_LOGROTATION_ARCH]"
 fi
 if [ -z "$SHELL_CONFPATH" ]; then
   logger "[Error][Virtual environment 'SHELL_CONFPATH' not found]"
@@ -70,13 +70,13 @@ else
 fi
 
 # CHMOD DIR
-if [ -d "$SHELL_LOGRATATION" ];
+if [ -d "$SHELL_LOGROTATION" ];
 then
-  chmod -R 777 $SHELL_LOGRATATION
+  chmod -R 777 $SHELL_LOGROTATION
 fi
-if [ -d "$SHELL_LOGRATATION_ARCH" ];
+if [ -d "$SHELL_LOGROTATION_ARCH" ];
 then
-  chmod -R 777 $SHELL_LOGRATATION_ARCH
+  chmod -R 777 $SHELL_LOGROTATION_ARCH
 fi
 if [ -d "$SHELL_CONFPATH" ];
 then

@@ -26,7 +26,7 @@ class BaseSchema(object):
                 },
             },
         },
-        "LOGRATATION": {
+        "LOGROTATION": {
             "LOGFILE": {
                 "FILENAME": "/opt/shellTaskEnv/log/shellLogEnvApp.log"
             },
@@ -67,7 +67,7 @@ class BaseExportSchema(BaseSchema):
             ]
         ]
     ] = None
-    LOGRATATION: Dict[
+    LOGROTATION: Dict[
         str, Union[
             Dict[str, str],
             Dict[

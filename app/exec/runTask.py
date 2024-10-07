@@ -44,7 +44,7 @@ def getLogger(
     """
     if pathfile is None:
         pathfile = (
-            BaseExportSchema.__SCHEMA__["LOGRATATION"]["LOGFILE"]["FILENAME"]
+            BaseExportSchema.__SCHEMA__["LOGROTATION"]["LOGFILE"]["FILENAME"]
         )
     logger = Logger(
         pathfile=pathfile,
@@ -200,7 +200,7 @@ def __calcDTime(
 
 def logShellRotationTask(
     logger: Logger,
-    data: dict = BaseExportSchema.LOGRATATION
+    data: dict = BaseExportSchema.LOGROTATION
 ) -> None:
     """
     Function for working with logfiles rotation.
@@ -209,7 +209,7 @@ def logShellRotationTask(
     :param logger: getLogger() function reference.
 
     :type data: dict
-    :param data: object BaseExportSchema.LOGRATATION.
+    :param data: object BaseExportSchema.LOGROTATION.
     """
     archName = data["ARCH"]["NAME"]
     fromDir = os.path.dirname(data["LOGFILE"]["FILENAME"])
@@ -299,7 +299,7 @@ def updateShellTask(
         )
     for key, val in QUEUE.get().items():
         if worktime >= val["TIMESTAMP"]:
-            if key == "LOGRATATION":
+            if key == "LOGROTATION":
                 dt, tstamp, dtype = __calcDTime(
                     val["CONF_DATA"]["ARCH"]["DATE_TIME"]
                 )
@@ -365,7 +365,7 @@ def runningShellTask(
     try:
         cfg = initCfg()
         logger = getLogger(
-            pathfile=cfg.LOGRATATION["LOGFILE"]["FILENAME"],
+            pathfile=cfg.LOGROTATION["LOGFILE"]["FILENAME"],
             console=console
         )
         logger.info(
@@ -377,17 +377,17 @@ def runningShellTask(
             toDirFilename=cfg.CONFDUMP["DIR"]
         )
         addShellTask(cfg.TASK)
-        if cfg.LOGRATATION["ARCH"]["ENABLE"]:
+        if cfg.LOGROTATION["ARCH"]["ENABLE"]:
             dt, tstamp, dtype = __calcDTime(
-                cfg.LOGRATATION["ARCH"]["DATE_TIME"]
+                cfg.LOGROTATION["ARCH"]["DATE_TIME"]
             )
             QUEUE.add(
-                key="LOGRATATION",
+                key="LOGROTATION",
                 value={
                     "DATE_TIME": str(dt),
                     "TIMESTAMP": tstamp,
                     "TYPE": dtype,
-                    "CONF_DATA": cfg.LOGRATATION
+                    "CONF_DATA": cfg.LOGROTATION
                 }
             )
         logger.info(
@@ -403,7 +403,7 @@ def runningShellTask(
             cursor = updateShellTask(worktime, cfg.TASK)
             keyTask = next(cursor)
             if keyTask is not None:
-                if keyTask == "LOGRATATION":
+                if keyTask == "LOGROTATION":
                     data: dict = QUEUE.get(key=keyTask)["CONF_DATA"]
                     logShellRotationTask(logger, data)
                 else:
