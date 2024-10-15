@@ -26,7 +26,7 @@ def addEnvFile() -> None:
         export = (
             "#!/bin/bash\n"
             "export SHELL_LOGROTATION="
-            f"{os.path.dirname(obj.LOGROTATION['LOGFILE']['FILENAME'])}\n"
+            f"{os.path.dirname(obj.LOGROTATION['LOGFILE'])}\n"
             "export SHELL_LOGROTATION_ARCH="
             f"{os.path.dirname(obj.LOGROTATION['ARCH']['DIR'])}\n"
             f"export SHELL_CONFPATH={os.path.dirname(obj.CONFPATH)}\n"

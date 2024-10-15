@@ -44,7 +44,7 @@ def getLogger(
     """
     if pathfile is None:
         pathfile = (
-            BaseExportSchema.__SCHEMA__["LOGROTATION"]["LOGFILE"]["FILENAME"]
+            BaseExportSchema.__SCHEMA__["LOGROTATION"]["LOGFILE"]
         )
     logger = Logger(
         pathfile=pathfile,
@@ -212,7 +212,7 @@ def logShellRotationTask(
     :param data: object BaseExportSchema.LOGROTATION.
     """
     archName = data["ARCH"]["NAME"]
-    fromDir = os.path.dirname(data["LOGFILE"]["FILENAME"])
+    fromDir = os.path.dirname(data["LOGFILE"])
     toDir = data["ARCH"]["DIR"]
     typeArch = data["ARCH"]["TYPE"]
     truncate = data["ARCH"]["TRUNCATE"]
@@ -227,7 +227,7 @@ def logShellRotationTask(
     )
     call = TruncateLogFile(
         truncate=truncate,
-        abspath_filename=data["LOGFILE"]["FILENAME"]
+        abspath_filename=data["LOGFILE"]
     )
     if call.out is not None:
         logger.info(
@@ -365,7 +365,7 @@ def runningShellTask(
     try:
         cfg = initCfg()
         logger = getLogger(
-            pathfile=cfg.LOGROTATION["LOGFILE"]["FILENAME"],
+            pathfile=cfg.LOGROTATION["LOGFILE"],
             console=console
         )
         logger.info(
