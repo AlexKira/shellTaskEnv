@@ -28,9 +28,7 @@ class BaseSchema(object):
             },
         },
         "LOGROTATION": {
-            "LOGFILE": {
-                "FILENAME": "/opt/shellTaskEnv/log/shellLogEnvApp.log"
-            },
+            "LOGFILE": "/opt/shellTaskEnv/log/shellLogEnvApp.log",
             "ARCH": {
                 "ENABLE": bool(),
                 "DATE_TIME": {
