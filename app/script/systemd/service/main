@@ -7,7 +7,7 @@ fi
 
 SHELL_WORKDIR="/opt/shellTaskEnv"
 DEFAULT_LOGDIR="${SHELL_WORKDIR}/log"
-DEFAULT_LOGDFILE="${DEFAULT_LOGDIR}/slellEnvAppService.log"
+DEFAULT_LOGDFILE="${DEFAULT_LOGDIR}/shellEnvAppService.log"
 VENV="${SHELL_WORKDIR}/.venv"
 export SHELL_WORKDIR
 
