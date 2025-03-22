@@ -266,7 +266,7 @@ If you specify a floating-point number in the `MINUTE` parameter, the time will 
     }
 }
 ```
-This task will be interpreted as `10 seconds` and `100 milliseconds`. It is important to remember that for other parameters, such as `HOURS`, `DAYS`, and `MONTH`, the use of floating-point numbers does not have the same effect and will operate according to standard rules.
+This task will be interpreted as `10.5 seconds`. It is important to remember that for other parameters, such as `HOURS`, `DAYS`, and `MONTH`, the use of floating-point numbers does not have the same effect and will operate according to standard rules.
 
 > **Note:**\
     It is important to note that if any field is left empty `""`, the task will be ignored. Therefore, it is recommended to insert the symbol `"*"` in the fields you are using to indicate that this field accepts the current date or time value.
