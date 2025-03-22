@@ -262,18 +262,19 @@ def addShellTask(
             "Error. Configuration file data was not transferred. "
             f"Result: {data}"
         )
-    {
-        QUEUE.add(
-            key=key,
-            value={
-                "DATE_TIME": str(__calcDTime(val["DATE_TIME"])[0]),
-                "TIMESTAMP": __calcDTime(val["DATE_TIME"])[1],
-                "TYPE": __calcDTime(val["DATE_TIME"])[2],
-                "SHELL": val["EXECUTE"]["SHELL"],
-            }
-        ) for key, val in data.items()
-        if "" not in val["DATE_TIME"].values()
-    }
+
+    for key, val in data.items():
+        dt, tstamp, dtype = __calcDTime(val["DATE_TIME"])
+        if "" not in val["DATE_TIME"].values():
+            QUEUE.add(
+                key=key,
+                value={
+                    "DATE_TIME": str(dt),
+                    "TIMESTAMP": tstamp,
+                    "TYPE": dtype,
+                    "SHELL": val["EXECUTE"]["SHELL"],
+                }
+            )
 
 
 def updateShellTask(
